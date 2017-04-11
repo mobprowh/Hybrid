@@ -1,0 +1,25 @@
+<ion-view title="VIDEOS">
+  <ion-content class="videos-main margintop10">
+    <div class="col-md-6">
+      <div ng-repeat="post in posts">
+        <div class="news-post video-post">
+          <div class="thumb-wrap">
+            <iframe src="{{post.content.rendered|youtube|trustAsResourceUrl}}" frameborder="0" width="560" height="315"></iframe>
+          </div>
+          <div class="hover-box"> <a href="#/app/postdetail/{{post.id}}">
+            <h2 ng-bind-html="post.title.rendered|cut:true:55:' ...'"></h2>
+            <ul class="post-tags">
+              <li> <i class="fa fa-clock-o"></i>{{post.date|date:'d MMM, y'}}</li>
+            </ul>
+          </div>
+          </a> </div>
+      </div>
+    </div>
+    <ion-infinite-scroll
+            ng-if="moreDataExists()"
+            on-infinite="loadMore()"
+            distance="1%"
+            immediate-check="false"> 
+            </ion-infinite-scroll>
+</ion-content>
+</ion-view>

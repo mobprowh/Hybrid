@@ -1,0 +1,12 @@
+{
+  "name": "Voters",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/Voter",
+      "proxyUrl": "http://104.197.42.140/cc/api/Voter"
+    }
+  ]
+}

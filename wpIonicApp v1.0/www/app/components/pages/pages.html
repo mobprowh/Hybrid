@@ -1,0 +1,39 @@
+<ion-view title="Pages">
+    <ion-content>
+        <div class="blog-style8  post-8 post type-post">
+            <div ng-repeat="post in posts">
+                <a href="#/app/pagedetail/{{post.id}}">
+                    <div class="post-thumb"> <img src="{{post.better_featured_image.media_details.sizes.medium.source_url}}">
+                        <div class="views-status"> <span>0 views</span> </div>
+                    </div>
+                    <div class="blog8-sec">
+                        <div class="row">
+                            <div class="col-md-3 border-col">
+                                <ul class="blog8-metas">
+                                    <li> <span><i class="fa fa-calendar-o"></i></span>
+                                        <p>{{post.date|date:'dd MMM'}}</p>
+                                    </li>
+                                    <li> <span><i class="fa fa-clock-o"></i></span>
+                                        <p>{{post.date|date:'h:mm a'}}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="blog-desc">
+                                    <h2 ng-bind-html="post.title.rendered"></h2>
+                                    <p ng-bind-html="post.content.rendered | limitHtml:100"> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <ion-infinite-scroll
+            ng-if="moreDataExists()"
+            on-infinite="loadMore()"
+            distance="1%"
+            immediate-check="false"> </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

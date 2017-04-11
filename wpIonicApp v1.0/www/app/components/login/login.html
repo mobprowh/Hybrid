@@ -1,0 +1,31 @@
+<ion-view title="Login">
+  <ion-content>
+    <div class="margintop100">
+      <div class="ind-logo"><img src="assets/img/wordpress.png"></div>
+      <div class="wrapper1">
+        <h1>Signin</h1>
+      </div>
+      <div class="register"> <span class="input-label" ng-show="mmv.error">
+        <p>{{mmv.error}}</p>
+        </span>
+        <form name="signinForm" ng-submit="mmv.signIn(credentials)">
+          <div class="forms"><i class="fa fa-user blue"></i>
+            <input type="text" ng-model="credentials.username" placeholder="username" name="username" placeholder="User Name" ng-required="true">
+            <div ng-if="signinForm.username.$invalid && signinForm.username.$dirty" ng-messages="signinForm.username.$error" class="wrapper1">
+              <div ng-message="required"><span>This field is required</span></div>
+            </div>
+            <i class="fa fa-key blue"></i>
+            <input ng-model="credentials.password" type="password" name="password" placeholder="Password" ng-required="true">
+            <div ng-if="signinForm.password.$invalid && signinForm.password.$dirty" ng-messages="signinForm.password.$error" class="wrapper1">
+              <div ng-message="required"><span>This field is required</span></div>
+            </div>
+          </div>
+          <input type="submit" value="Sign in" ng-disabled="signinForm.$invalid"  class="register-button">
+        </form>
+      </div>
+      <div class="frt">
+        <div class="ftr-abt1"> <a href="#/signup"><img src="assets/img/signup-icon.png" ></img> Signup </div>
+        </a> </div>
+    </div>
+  </ion-content>
+</ion-view>

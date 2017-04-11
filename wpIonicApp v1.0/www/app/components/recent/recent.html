@@ -1,0 +1,29 @@
+<ion-view view-title="RECENTS">
+  <ion-content class="recmain">
+    <div class="content-main">
+      <div ng-repeat="post in posts"> <a href="#/app/postdetail/{{post.id}}">
+        <div class="membox">
+          <div class="dat-lft">
+            <ul>
+              <li class="dat-top">
+                <h3>{{post.date|date:'dd'}}</h3>
+                <p>{{post.date|date:'MMM'}}</p>
+              </li>
+              <li class="dat-top dat-top1 redbg dat-bot"> <i class="fa fa-clock-o"></i>
+                <p>{{post.date|date:'h:mm'}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="rec-content mem-cont rec-cont-nw">
+            <div class="rc-cont-top">
+              <h3 ng-bind-html="post.title.rendered|cut:true:100:' ...'"></h3>
+            </div>
+            <div class="rec-content wall-content rec-cont-bot">
+              <p class="postcon" ng-bind-html="post.content.rendered |cut:true:150:' ...'"></p>
+            </div>
+          </div>
+        </div> 
+        </a> </div>
+    </div>
+  </ion-content>
+</ion-view>

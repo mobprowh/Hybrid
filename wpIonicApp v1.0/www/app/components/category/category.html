@@ -1,0 +1,21 @@
+<ion-view view-title="{{catname}}">
+    <ion-content>
+        <div style="float:left; width:50%; height:232px;" ng-repeat="category in subcategory">
+            <div class="news-post image-post default-size" style="position: absolute; width: 50%; float:left;">
+                <div class="thumb-wrap"><a href="#/app/postdetail/{{category.firstPost[0].id}}"> 
+                <img src="{{category.firstPost[0].better_featured_image.media_details.sizes.medium.source_url}}" height="228px"></a>
+                </div>
+                <div class="hover-box">
+                    <div class="inner-hover"> <a class="category-post food" href="#/app/posts/{{category.name}}">{{category.name}}</a>
+             <a href="#/app/postdetail/{{category.firstPost[0].id}}"> <h2 ng-bind-html="category.firstPost[0].title.rendered|cut:true:50:' ...'">
+             </h2></a>
+                        <ul class="post-tags">
+                            <li><i class="fa fa-clock-o"></i>{{category.firstPost[0].date|date:'dd,yyyy'}}</li>
+                            <li><a href="#"><i class="fa fa-comments-o"></i><span>{{category.firstPost[0].comment_count}}</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

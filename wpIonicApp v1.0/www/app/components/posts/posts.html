@@ -1,0 +1,35 @@
+<ion-view view-title="{{itemID}}">
+  <ion-content class="postdetail">
+    <div class="blog-main newsmain">
+      <div ng-repeat="post in posts ">
+        <div ng-switch on="[$index]">
+          <div ng-switch-when="0">
+            <div class="blog-box blog-detail popu-prl blog-box2">
+              <div ng-if="post.better_featured_image.source_url">
+                <div class="blog-img newsimg newsimg1"> <a href="#/app/postdetail/{{post.id}}"> <img src="{{post.better_featured_image.source_url}}"> </a> </div>
+              </div>
+              <div class="blogdetail"> <a href="#/app/postdetail/{{post.id}}">
+                <h3 ng-bind-html="post.title.rendered|cut:true:65:' ...'"> </h3>
+                <p class="postcon"><span ng-bind-html="post.content.rendered |cut:true:180:' ...'"></span></p>
+                <div class="blg-det-blo1"> <span>{{post.date|date:'d MMMM, y'}}</span> </div>
+                </a> </div>
+            </div>
+          </div>
+          <div ng-switch-default> 
+            <!-- End Box -->
+            <div class="membox pop-box membox1"> <a href="#/app/postdetail/{{post.id}}">
+              <div class="mem-img pop-img"> <img src="{{post.better_featured_image.media_details.sizes.medium.source_url}}"> </div>
+              </a>
+              <div class="rec-content mem-cont popu-cont"> <a href="#/app/postdetail/{{post.id}}">
+                <h3 ng-bind-html="post.title.rendered|cut:true:70:' ...'"> <i ng-if="'video'==post.format" class="fa fa-play-circle fright"></i> <i ng-if="'standard'==post.format" class="fa fa-pencil-square-o fright"> </i> <i ng-if="'image'==post.format" class="fa fa-photo fright"></i></h3>
+                <p>{{post.date|date:'MMM d, y'}}</p>
+                </a> </div>
+            </div>
+            <!-- End Box --> 
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

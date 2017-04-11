@@ -1,0 +1,295 @@
+<!--
+  Generated template for the DetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar class="detail-nav">
+        <div class="detail-title" text-center>Candidate Companion</div>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="detail">
+
+    <div class="detail-header" text-center>
+        <ion-avatar>
+
+            <img src="{{icon}}">
+
+        </ion-avatar>
+        <div class="margintop30"></div>
+        <h7 class="name">{{voter.FirstName}} {{voter.LastName}}</h7><br><br>
+        <h7 class="old">{{old}} Years Old</h7><br>
+        <h7 class="address">{{voter.StreetNum}} {{voter.StreetName}} </h7><br>
+        <h7 class="prec">{{voter.Precstring}} </h7><br><br>
+    </div>
+
+
+
+    <div class="detail-content">
+
+
+        <div>
+            <ion-segment [(ngModel)]="info">
+                <ion-segment-button value="votingRecord" (ionSelect)="selectedRecord()">
+                    VOTING RECORD
+                </ion-segment-button>
+                <ion-segment-button value="addedInfo" (ionSelect)="selectedInfo()">
+                    Added Info
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+
+        <div [ngSwitch]="info">
+            <div *ngSwitchCase="'votingRecord'" class="vote-info">
+                <ion-row center class="title">
+                    <ion-col class="col1-header" width-20>
+                        <div>YEAR</div>
+                    </ion-col>
+                    <ion-col class="col2-header">
+                        <div>PRIMARY</div>
+                    </ion-col>
+                    <ion-col class="col3-header">
+                        <div>GENERAL</div>
+                    </ion-col>
+                </ion-row>
+
+
+                <ion-row center>
+                    <ion-col class="col1" width-20>
+                        <div>2014</div>
+                    </ion-col>
+                    <ion-col class="col2">
+                        <div>DID NOT VOTE</div>
+                    </ion-col>
+                    <ion-col class="col3">
+                        <div>VOTED</div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="line"></ion-row>
+
+                <ion-row center>
+                    <ion-col class="col1" width-20>
+                        <div>2012</div>
+                    </ion-col>
+                    <ion-col class="col2">
+                        <div>DID NOT VOTE</div>
+                    </ion-col>
+                    <ion-col class="col3">
+                        <div>VOTED</div>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row class="line"></ion-row>
+
+                <ion-row center>
+                    <ion-col class="col1" width-20>
+                        <div>2010</div>
+                    </ion-col>
+                    <ion-col class="col2">
+                        <div>DID NOT VOTE</div>
+                    </ion-col>
+                    <ion-col class="col3">
+                        <div>VOTED</div>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <div *ngSwitchCase="'addedInfo'">
+                <ion-list class="person-info" *ngFor="let voterDetail of voterDetails">
+                    <!--
+                    <ion-row>
+                         <button  class="saveButton" (click)="formPost()">Save</button>
+                    </ion-row>
+                    -->
+                    <div class="row">
+                        <div class="col text-right">
+                            <button class="saveButton" (click)="formPost()">Save</button>
+                        </div>
+                    </div>
+
+
+
+                    <ion-item>
+                        <ion-label item-left>Phone Number</ion-label>
+                        <ion-input item-right type="tel" [(ngModel)]="voterDetail.PhoneNo" (click)="scrollTo()"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label item-left>Email Address</ion-label>
+                        <ion-input item-right type="email" [(ngModel)]="voterDetail.Email" (click)="scrollTo()"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label item-left>{{connections}}</ion-label>
+                        <ion-input type="text" [(ngModel)]="voterDetail.Twitter" [hidden]="hideTwitter" (click)="scrollTo()"></ion-input>
+                        <ion-input type="text" [(ngModel)]="voterDetail.Ig" [hidden]="hideInstagram" (click)="scrollTo()"></ion-input>
+                        <ion-input type="text" [(ngModel)]="voterDetail.Facebook" [hidden]="hideFacebook" (click)="scrollTo()"></ion-input>
+                        <button item-right (click)="twitter()">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </button>
+                        <button item-right (click)="instagram()">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </button>
+                        <button item-right (click)="facebook()">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Preferred Way</ion-label>
+                        <ion-select [(ngModel)]="voterDetail.PreferedWay">
+                            <ion-option value="c">Call</ion-option>
+                            <ion-option value="t">Text</ion-option>
+                            <ion-option value="e">Email</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                </ion-list>
+            </div>
+        </div>
+
+
+<!--
+        <div>VOTING RECORD</div>
+        <div class="vote-info">
+
+
+            <ion-row center>
+                <ion-col class="col1-header" width-20>
+                    <div>YEAR</div>
+                </ion-col>
+                <ion-col class="col2-header">
+                    <div>PRIMARY</div>
+                </ion-col>
+                <ion-col class="col3-header">
+                    <div>GENERAL</div>
+                </ion-col>
+            </ion-row>
+
+
+            <ion-row center>
+                <ion-col class="col1" width-20>
+                    <div>2014</div>
+                </ion-col>
+                <ion-col class="col2">
+                    <div>DID NOT VOTE</div>
+                </ion-col>
+                <ion-col class="col3">
+                    <div>VOTED</div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="line"></ion-row>
+
+            <ion-row center>
+                <ion-col class="col1" width-20>
+                    <div>2012</div>
+                </ion-col>
+                <ion-col class="col2">
+                    <div>DID NOT VOTE</div>
+                </ion-col>
+                <ion-col class="col3">
+                    <div>VOTED</div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="line"></ion-row>
+
+            <ion-row center>
+                <ion-col class="col1" width-20>
+                    <div>2010</div>
+                </ion-col>
+                <ion-col class="col2">
+                    <div>DID NOT VOTE</div>
+                </ion-col>
+                <ion-col class="col3">
+                    <div>VOTED</div>
+                </ion-col>
+            </ion-row>
+        </div>
+
+        <br>
+
+        <ion-list class="person-info" *ngFor="let voterDetail of voterDetails">
+            <ion-row>
+                <ion-label>ADDED INFO:</ion-label> <button (click)="formPost()">Save</button>
+            </ion-row>
+            <ion-item>
+                <ion-label item-left>Phone Number</ion-label>
+                <ion-input item-right type="tel" [(ngModel)]="voterDetail.PhoneNo" (click)="scrollTo()"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label item-left>Email Address</ion-label>
+                <ion-input item-right type="email" [(ngModel)]="voterDetail.Email" (click)="scrollTo()"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label item-left>{{connections}}</ion-label>
+                <ion-input type="text" [(ngModel)]="voterDetail.Twitter" [hidden]="hideTwitter" (click)="scrollTo()"></ion-input>
+                <ion-input type="text" [(ngModel)]="voterDetail.Ig" [hidden]="hideInstagram" (click)="scrollTo()"></ion-input>
+                <ion-input type="text" [(ngModel)]="voterDetail.Facebook" [hidden]="hideFacebook" (click)="scrollTo()"></ion-input>
+                <button item-right (click)="twitter()">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                </button>
+                <button item-right (click)="instagram()">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </button>
+                <button item-right (click)="facebook()">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+            </ion-item>
+            <ion-item>
+                <ion-label>Preferred Way</ion-label>
+                <ion-select [(ngModel)]="voterDetail.PreferedWay">
+                    <ion-option value="c">Call</ion-option>
+                    <ion-option value="t">Text</ion-option>
+                    <ion-option value="e">Email</ion-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+
+        -->
+
+
+
+
+    </div>
+
+</ion-content>
+
+
+
+<!--
+    
+    <p>VOTING RECORD</p>
+    
+    <ion-row center>
+        <ion-col class="col1-header" width-20><div>YEAR</div></ion-col>
+        <ion-col class="col2-header" width-33><div>PRIMARY</div></ion-col>
+        <ion-col class="col3-header" width-33><div>GENERAL</div></ion-col>
+    </ion-row>
+    
+    <ion-row center>
+        <ion-col class="col1" width-20><div>2014</div></ion-col>
+        <ion-col class="col2" width-33><div>DID NOT VOTE</div></ion-col>
+        <ion-col class="col3" width-33><div>VOTED</div></ion-col>
+    </ion-row>
+    <ion-row class="line"></ion-row>
+    
+    <ion-row center>
+        <ion-col class="col1" width-20><div>2012</div></ion-col>
+        <ion-col class="col2" width-33><div>DID NOT VOTE</div></ion-col>
+        <ion-col class="col3" width-33><div>VOTED</div></ion-col>
+    </ion-row>
+    
+    <ion-row class="line"></ion-row>
+    
+    <ion-row center>
+        <ion-col class="col1" width-20><div>2010</div></ion-col>
+        <ion-col class="col2" width-33><div>DID NOT VOTE</div></ion-col>
+        <ion-col class="col3" width-33><div>VOTED</div></ion-col>
+    </ion-row>
+    <br>
+-->

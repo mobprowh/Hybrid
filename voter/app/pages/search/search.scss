@@ -1,0 +1,82 @@
+.search {
+    
+    //background-color: #b3f1c0;
+    //margin-top: 25px;
+    
+    .title {
+        text-align: center;
+    }
+    
+    h6 {        
+        text-align: center;
+    }
+
+    .err {
+        color: map-get($colors, danger);
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .succ {
+        color: map-get($colors, primary);
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .item:nth-child(even) {
+        background-color: #dcdcdc;
+    }
+
+    ion-list ion-item h2 {
+        color: #387ef5;
+        text-align: center;
+    }
+
+    ion-list ion-item p {
+        text-align: center;
+    }
+
+}
+
+.margin20 {
+    margin-top: 15px;
+}
+
+/*
+
+.search-text {
+    color: white;
+    font-size: 1.8rem;
+}
+
+ion-header {
+    background-color: #3b5998;
+}
+ion-header .title {
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 3.0rem;
+}
+
+*/
+
+.search-text {
+    color: white;
+    font-size: 1.8rem;
+}
+
+ion-header {
+    background-color: #3b5998;
+}
+
+ion-header .title {
+    padding-top: 25px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #c5eff7;
+}
+
+
+
+
+

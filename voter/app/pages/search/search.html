@@ -1,0 +1,61 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header text-center>
+<!--
+    
+    <ion-title class="title" text-center>Candidate Companion</ion-title>
+    <br>
+-->
+    <div class="title">Candidate Companion</div> <br>
+
+    <div text-center class="search-text">Search a voter by last name or address</div>
+
+    <ion-toolbar no-border-top>
+        <ion-searchbar [(ngModel)]="searchText" (ionInput)="getVoters($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+    </ion-toolbar>
+
+</ion-header>
+
+<!--
+
+<ion-header text-center>
+    <ion-navbar>
+        <ion-title class="title">Candidate Companion</ion-title>
+        <br>
+        <div class="search-text">Search a voter by last name or address</div>
+        <br>
+        <ion-searchbar (ionInput)="getVoters($event)"></ion-searchbar>
+    </ion-navbar>
+
+</ion-header>
+
+-->
+
+
+<ion-content class="search">
+
+    <ion-list>
+        <ion-item *ngFor="let voter of voters" >
+            <ion-icon item-left large name="man" [hidden]="voter.Gender=='F'" primary></ion-icon>
+            <ion-icon item-left large name="woman" [hidden]="voter.Gender=='M'" primary></ion-icon>
+
+            <h2>{{voter.FirstName}} {{voter.LastName}}</h2>
+            <p>{{voter.YOB}}, {{voter.StreetNum}} {{voter.StreetName}}</p>
+            
+            <button round item-right (click)="openNavDetailsPage(voter)">View</button>
+            
+  
+
+        </ion-item>
+    </ion-list>
+
+    <h2 class="err">{{err_code}}</h2>
+    <h2 class="succ" [hidden]="voters!=''">{{succ_code}}</h2>
+
+</ion-content>

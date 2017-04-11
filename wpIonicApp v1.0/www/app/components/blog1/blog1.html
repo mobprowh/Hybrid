@@ -1,0 +1,20 @@
+<ion-view title="Blog 1">
+  <ion-content class="blog-main blog-main2">
+    <div ng-repeat="post in posts">
+      <div class="blog-box blog-box1">
+        <div class="blog-img">
+          <div class="news-post news-post1 video-icon"> <a href="#/app/postdetail/{{post.id}}" class="video-links"> <i ng-if="'video' == post.format" class="fa fa-play"></i> <i ng-if="'standard' == post.format" class="fa fa-pencil-square-o"></i> <i ng-if="'image' == post.format" class="fa fa-photo"></i> </a> <a href="#/app/postdetail/{{post.id}}">
+            <h3 ng-bind-html="post.title.rendered"></h3>
+            <img src="{{post.better_featured_image.media_details.sizes.medium.source_url}}">
+            <div class="bg-ig-tit bg-ig-tit1"> <span>{{post.date|date:'d MMMM, y'}}<i class="fa fa-comments"> {{post.comment_count}}</i> </span> </div>
+            </a> </div>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll
+            ng-if="moreDataExists()"
+            on-infinite="loadMore()"
+            distance="1%"
+            immediate-check="false"> </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

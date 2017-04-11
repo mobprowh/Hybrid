@@ -1,0 +1,180 @@
+.detail {
+    background-color: gainsboro;
+    
+    ion-avatar img {
+        max-width: 8rem;
+        max-height: 8rem;
+        border-radius: 6rem;
+        margin: auto;        
+    }    
+    
+    .col1-header {
+        text-align: center;
+    }
+    
+    .col1 {
+        background-color: white;
+        text-align: center;
+    }
+    
+    .col2-header {
+        text-align: center;
+    }
+    
+    .col2 {
+        background-color: #efba05;
+        text-align: center;
+    }
+    
+    .col3-header {
+        text-align: center;
+    }
+    
+    .col3 {
+        background-color: map-get($colors, favorite);
+        text-align: center;
+    }
+    
+    .line {
+        height: 2px;
+    }   
+    
+    ion-label {
+        color: black;
+    }
+    
+    .vote-info {
+        font-size: 1.4rem;
+    }
+    
+    ion-item {
+        height: 35px;
+        min-height: 10px;
+    } 
+
+    .detail-header h7 {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+
+    scroll-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .detail-header {
+        flex: 2;
+    }
+
+    .detail-content {
+        flex:3;
+    }
+
+    .detail-header .name {
+        font-family: Arial, Helvetica, sans-serif;
+        //color: map-get($colors, primary);
+        color: #324e79;
+    }
+
+    .detail-header .old {
+        font-size: 1.8rem;
+        color: #1ba39c;
+    }
+
+    .detail-header .address {
+        font-size: 1.8rem;
+        color: #1ba39c;
+    }
+
+    .detail-header .prec {
+        font-size: 1.8rem;
+        color: #1ba39c;
+    }
+
+    .saveButton {
+        margin-top: 30px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        margin-left: 50px;
+        //margin-left: 250px;
+        float: right;
+    }
+
+    .detail-content ion-segment ion-segment-button {
+        //background-color: #387ef5;
+        color: #387ef5;
+    }
+
+    .margintop30 {
+        margin-top: 30px;
+    }
+
+    .vote-info .title {
+        margin-top: 35px;
+        font-size: 1.5rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .vote-info ion-row ion-col {
+        height: 28px;
+    }
+
+    .person-info ion-item ion-label {
+        color: #324e79;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 1.8rem;
+    }
+
+    .segment-button.segment-activated {
+        background-color: #387ef5;
+        color: #fff;
+        opacity: 1;
+    }
+    
+
+}
+
+/*ion-header .detail-nav ion-title{
+    padding-top: 10px;
+    padding-bottom: 5px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+ion-header ion-navbar ion-title .toolbar-title{
+    //font-size: 1.6rem;
+    //font-weight: bold;
+}
+
+ion-select {
+    padding-left: 0px;
+}*/
+
+ion-header .detail-nav .detail-title{
+    //background-color: map-get($colors, primary);
+    //margin-top: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+
+ion-header ion-navbar ion-title .toolbar-title{
+    //font-size: 1.6rem;
+    //font-weight: bold;
+}
+
+.back-button {
+    color: #3b5998;
+    //padding-top: 15px;
+}
+
+ion-select {
+    padding-left: 0px;
+}
+
+
+
+
+

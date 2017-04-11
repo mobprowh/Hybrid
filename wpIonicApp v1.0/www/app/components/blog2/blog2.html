@@ -1,0 +1,31 @@
+<ion-view title="Blog 2">
+    <ion-content>
+        <div ng-repeat="post in posts">
+            <a href="#/app/postdetail/{{post.id}}">
+                <div class="container1">
+                    <div class="border">
+                        <div class="time">
+                            <span>{{post.date|date:'h a'}}</span></div></div>
+                    <div class="evidence2">
+                        <h2 class="postcon" ng-bind-html="post.title.rendered"></h2>
+                        <h3 ng-bind-html="post.content.rendered | cut:true:95:' ...'"></h3>
+                        <div class="date-format">
+                            <span>{{post.date|date:'dd MMM'}}</span>
+                        </div>
+                        <div class="media"><li><img src="{{post.better_featured_image.media_details.sizes.medium.source_url}}" width="100%";></li>
+                            <div class="icon-format">
+                                <span><i class="fa fa-comments"> {{post.comment_count}}</i></span>
+                            </div>
+                        </div>
+                    </div>   
+                </div> 
+            </a>
+        </div> 
+        <ion-infinite-scroll
+            ng-if="moreDataExists()"
+            on-infinite="loadMore()"
+            distance="1%"
+            immediate-check="false"> 
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,55 @@
+<ion-side-menus  enable-menu-with-back-views="true">
+  <!--
+<div class="bar bar-footer  bar-positive">
+  <a href="#/app/tabs"><button class="button icon ion-home">Home</button></a>
+</div>-->
+  
+  <ion-side-menu-content>  
+    <ion-nav-bar class="bar app-top-bar bar-positive">
+      <ion-nav-back-button class="backcolor"> </ion-nav-back-button>     
+     
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left"> </button>
+      </ion-nav-buttons>
+      
+      <ion-nav-buttons side="right"> <a href="#/app/tabs/recent">
+        <button class="button icon ion-home"> </button>
+        </a> </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view animation="slide-left-right" name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+  
+  <ion-side-menu side="left">
+    <ion-content class="recmain">
+      <div class="category"> <img src="assets/img/logo.png"/>
+        <h1>{{$root.me.id ? $root.me.name :'Guest'}}</h1>
+      </div>
+      <ion-list>
+        <ion-item class="item-icon-right left-menu1 left-menu2" nav-clear menu-close data-ng-repeat="c in category" ng-if="c.name!='Uncategorized'&&c.name!='Blog'&&c.name!='Video'" ng-style="{'line-height': '10px'}" href="#/app/category/{{c.id}}">
+        <!-- <img ng-if="post.featured_image" ng-src="{{post._embedded['http://v2.wp-api.org/attachment'][0][$index].source_url}}" class="alignleft" /> -->
+        
+        <h2>{{c.name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i> <span class="bb" ng-repeat="sub in c.subcategory" ng-class="{comma:!$last}"> <span class="label label-default">{{sub.name}}</span> </span> </ion-list>
+      <div class="membox-blog">
+        <div class="blog-mem">
+          <h2>Others</h2>
+        </div>
+      </div>
+      <ion-list>
+        <ion-item class="item-icon-right left-menu1 left-menu2" nav-clear menu-close href="#/app/blog1"> <i class="icon ion-chevron-right icon-accessory"></i>
+          <h2>Blog 1</h2>
+        </ion-item>
+        <ion-item class="item-icon-right left-menu1 left-menu2" nav-clear menu-close href="#/app/blog2"> <i class="icon ion-chevron-right icon-accessory"></i>
+          <h2>Blog 2</h2>
+        </ion-item>
+        <ion-item class="item-icon-right left-menu1 left-menu2" nav-clear menu-close href="#/app/videos"> <i class="icon ion-chevron-right icon-accessory"></i>
+          <h2>Videos</h2>
+        </ion-item>
+        <ion-item class="item-icon-right left-menu1 left-menu2" nav-clear menu-close href="#/app/pages"> <i class="icon ion-chevron-right icon-accessory"></i>
+          <h2>Pages</h2>
+        </ion-item>
+      </ion-list>
+      <ion-item nav-clear menu-close class="item-icon-left white-color-background left1" ng-click="logout()"> <i class="icon ion-log-out"></i> Logout </ion-item>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

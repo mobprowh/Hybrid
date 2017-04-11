@@ -1,0 +1,53 @@
+<ion-view>
+  <ion-content>
+  <div class="margintop100">
+    <div class="img">
+      <div class="ind-logo"><img src="assets/img/wordpress.png"></div>
+    </div>
+    <div class="wrapper1">
+      <h1>Register</h1>
+      <span class="form-label" ng-show="sc.error">
+      <p>{{sc.error}}</p>
+      </span> </div>
+    <div class="register">
+      <div class="forms">
+        <div class="list"><i class="fa fa-user blue"></i>
+          <form name="signUpform" ng-submit="sc.signUp(credentials)" role="form">
+            <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+              <input type="text" name="Username" placeholder="Username" id="username" class="form-control" ng-model="credentials.Username" required />
+              <div ng-if="signUpform.Username.$invalid && signUpform.Username.$dirty" ng-messages="signUpform.Username.$error" class="wrapper1">
+                <div ng-message="required"><span>This field is required</span></div>
+              </div>
+            </div>
+            <i class="fa fa-envelope-o blue"></i>
+            <div class="form-group" ng-class="{ 'has-error': form.name.$dirty && form.name.$error.required }">
+              <input type="text" name="email" placeholder="Email" id="username" class="form-control" ng-model="credentials.email" required / >
+              <div ng-if="signUpform.email.$invalid && signUpform.email.$dirty" ng-messages="signUpform.email.$error" class="wrapper1">
+                <div ng-message="required"><span>This field is required</span></div>
+              </div>
+            </div>
+            <i class="fa fa-key blue"></i>
+            <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+              <input type="password" name="password" id="password" placeholder="password" class="form-control" ng-model="credentials.password" required />
+              <div ng-if="signUpform.password.$invalid && signUpform.password.$dirty" ng-messages="signUpform.password.$error" class="wrapper1">
+                <div ng-message="required"><span>This field is required</span></div>
+              </div>
+            </div>
+            <i class="fa fa-mobile blue"></i>
+            <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+              <input type="text" name="phoneno" id="phoneno" class="form-control" ng-model="credentials.phoneno" placeholder="+91 995643456" required />
+              <div ng-if="signUpform.phoneno.$invalid && signUpform.phoneno.$dirty" ng-messages="signUpform.phoneno.$error" class="wrapper1">
+                <div ng-message="required"><span>This field is required</span></div>
+              </div>
+            </div>
+            <input type="submit" value="Create Account" ng-disabled="signUpform.$invalid" class="register-button1">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="frt">
+      <div class="ftr-about1"> <a href="#/login"> <img src="assets/img/login.png"/>Login</a></div>
+    </div>
+    </div>
+  </ion-content>
+</ion-view>

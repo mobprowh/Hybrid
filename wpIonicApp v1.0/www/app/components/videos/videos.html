@@ -1,0 +1,24 @@
+<ion-view title="Videos">
+  <ion-content>
+    <div ng-repeat="post in posts">
+      <div class="project">
+        <div class="news-post video-icon"> <a href="#/app/postdetail/{{post.id}}" class="video-links"><i class="fa fa-play"></i></a></div>
+        <img src="{{set2((post.content.rendered | youtube1))}}">
+        <div class="title">
+          <div class="project-title">
+            <h3><span>
+              <p><strong>{{post.date|date:'dd'}}</strong><br />
+                {{post.date|date:'MMM'}}<br />
+              </p>
+   <i class="fa fa-comments"> {{post.comment_count}} </i></span><a href="#/app/postdetail/{{post.id}}" ng-bind-html="post.title.rendered"></a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll
+            ng-if="moreDataExists()"
+            on-infinite="loadMore()"
+            distance="1%"
+            immediate-check="false"> </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

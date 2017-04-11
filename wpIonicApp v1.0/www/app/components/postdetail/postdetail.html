@@ -1,0 +1,19 @@
+<ion-view view-title="{{post.title.rendered}}" >
+    <ion-content>
+        <div class="blog-main">
+            <div class="blog-box blog-detail">
+                <h3><a href="#"><span ng-bind-html="post.title.rendered"></span></a></h3>
+                <div class="blg-det-blo"> <span>{{post.date|date:'MMM d, y'}}</span> 
+                    <strong><i class="fa fa-comments"> {{comments.length}}</i></strong>
+                </div>
+                <div class="blog-social">
+                    <li><i ng-click="shareViaFacebook('{{post.title.rendered}}','{{post.better_featured_image.source_url}}','{{post.link}}')" class="icon ion-social-facebook-outline fright"></i> </li>
+                    <li><i ng-click="shareViaTwitter('{{post.title.rendered}}','{{post.better_featured_image.source_url}}','{{post.link}}')" class="icon ion-social-twitter-outline fright"></i></li>
+                    <li><i ng-click="shareViaWhatsApp('{{post.title.rendered}}','{{post.better_featured_image.source_url}}','{{post.link}}')" class="icon ion-social-whatsapp-outline fright"></i></li>
+                </div>
+                <div class="blog-img newsdimg"> <img class="margintop5" src="{{post.better_featured_image.source_url}}"> </div>
+                <p class="postcon" ng-if="content" ng-bind-html="content | html_filters"></p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
